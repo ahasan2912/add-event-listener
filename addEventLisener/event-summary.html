@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM Summary</title>
+</head>
+
+<body>
+    <h1>DOM Event Handlers</h1>
+    <h3 id="handeler-status">Default Text</h3>
+    <button onclick="handelOnClick()">Add onclick Function</button>
+    <br>
+    <br>
+    <p id="peragraph">Default Input text</p>
+    <input type="text" id="input">
+    <button id="update">Update</button>
+    <script>
+        function handelOnClick() {
+            console.log('buuton clicked');
+            const status = document.getElementById('handeler-status');
+            status.innerText = 'Handled by function attached on onclick attribute';
+        }
+
+        const updatBtn = document.getElementById('update').addEventListener('click', function () {
+            const inputText = document.getElementById('input');
+            const inputField = inputText.value;
+            if (inputField.length === 0) {
+                peragraph.innerText = 'Empty String';
+            }
+            else {
+                const peragraph = document.getElementById('peragraph');
+                peragraph.innerText = inputField;
+                inputText.value = '';
+            }
+        });
+    </script>
+</body>
+
+</html>
